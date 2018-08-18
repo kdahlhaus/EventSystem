@@ -28,7 +28,6 @@
 #ifndef EventQueue_h
 #define EventQueue_h
 
-#include <WProgram.h>
 #include <Events.h>
 
 class EventQueue {
@@ -45,10 +44,10 @@ public:
    EventQueue();
 
    // returns true if no events are in the queue
-   boolean isEmpty();
+   bool isEmpty();
 
    // returns true if no more events can be inserted into the queue
-   boolean isFull();
+   bool isFull();
 
    // actual number of events in queue
    int getNumEvents();
@@ -56,13 +55,13 @@ public:
    // tries to insert an event into the queue;
    // returns true if successful, false if the
    // queue if full and the event cannot be inserted
-   boolean enqueueEvent(int ev_code, int ev_param);
+   bool enqueueEvent(int ev_code, int ev_param);
 
    // tries to extract an event from the queue;
    // returns true if successful, false if the
    // queue is empty (the parameteres are not touched
    // in this case)
-   boolean dequeueEvent(int* ev_code, int* ev_param);
+   bool dequeueEvent(int* ev_code, int* ev_param);
 
 private:
    // each event is represented by an integer code

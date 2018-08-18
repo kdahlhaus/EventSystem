@@ -28,8 +28,6 @@
 #ifndef Events_h
 #define Events_h
 
-#include <WProgram.h>
-
 // Some common events.
 // Codes 0..199 are available for
 // user defined events.

@@ -36,7 +36,6 @@
 
 
 
-#include <WProgram.h>
 
 #include <Events.h>
 
@@ -82,7 +81,7 @@ public:
 
    // OVERWRITE_EVENT = if a listener with the same event is found, replace its function with f
 
-   boolean addEventListener(int ev_code, EventListener f, OverwriteOption overwrite = ALWAYS_APPEND);
+   bool addEventListener(int ev_code, EventListener f, OverwriteOption overwrite = ALWAYS_APPEND);
 
    
 
@@ -90,7 +89,7 @@ public:
 
    // other listeners with the same function or ev_code will not be affected
 
-   boolean removeEventListener(int ev_code, EventListener f);
+   bool removeEventListener(int ev_code, EventListener f);
 
    
 
@@ -100,11 +99,11 @@ public:
 
    // false if the listener was not found
 
-   boolean enableEventListener(int ev_code, EventListener f, boolean enable);
+   bool enableEventListener(int ev_code, EventListener f, bool enable);
 
    
 
-   boolean isEventListenerEnabled(int ev_code, EventListener f);
+   bool isEventListenerEnabled(int ev_code, EventListener f);
 
    
 
@@ -112,11 +111,11 @@ public:
 
    // an event with no listener is dequeued
 
-   boolean setDefaultListener(EventListener f);
+   bool setDefaultListener(EventListener f);
 
    void removeDefaultListener();
 
-   void enableDefaultListener(boolean enable);
+   void enableDefaultListener(bool enable);
 
    
 
@@ -172,7 +171,7 @@ private:
 
    // each listener can be enabled or disabled
 
-   boolean enabled[MAX_LISTENERS];
+   bool enabled[MAX_LISTENERS];
 
    
 
@@ -186,7 +185,7 @@ private:
 
    // once set, the default callback function can be enabled or disabled
 
-   boolean defaultCallbackEnabled;
+   bool defaultCallbackEnabled;
 
    
 

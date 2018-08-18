@@ -47,12 +47,12 @@ void EventQueue::init() {
 }
 
 
-boolean EventQueue::isEmpty() {
+bool EventQueue::isEmpty() {
  return (numEvents == 0);
 }
 
 
-boolean EventQueue::isFull() {
+bool EventQueue::isFull() {
  return (eventQueueHead == eventQueueTail);
 }
 
@@ -62,12 +62,9 @@ int EventQueue::getNumEvents() {
 }
 
 
-boolean EventQueue::enqueueEvent(int ev_code, int ev_param) {
+bool EventQueue::enqueueEvent(int ev_code, int ev_param) {
 
  if (isFull()) {
-   // log the queue full error
-   Serial.print(millis());
-   Serial.println(" QUEUE FULL");
    return false;
  }
 
@@ -85,9 +82,9 @@ boolean EventQueue::enqueueEvent(int ev_code, int ev_param) {
 }
 
 
-boolean EventQueue::dequeueEvent(int* ev_code, int* ev_param) {
+bool EventQueue::dequeueEvent(int* ev_code, int* ev_param) {
  int temp;
- boolean isEmpty;
+ bool isEmpty;
  
  if (numEvents == 0) {
    return false;

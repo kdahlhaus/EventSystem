@@ -47,7 +47,7 @@ EventDispatcher::EventDispatcher(EventQueue* evQueue) {
 
 
 
-boolean EventDispatcher::addEventListener(int ev_code, EventListener f, OverwriteOption overwrite) {
+bool EventDispatcher::addEventListener(int ev_code, EventListener f, OverwriteOption overwrite) {
 
    int k;
 
@@ -115,7 +115,7 @@ boolean EventDispatcher::addEventListener(int ev_code, EventListener f, Overwrit
 
 
 
-boolean EventDispatcher::removeEventListener(int ev_code, EventListener f) {
+bool EventDispatcher::removeEventListener(int ev_code, EventListener f) {
 
    int i;
 
@@ -165,7 +165,7 @@ boolean EventDispatcher::removeEventListener(int ev_code, EventListener f) {
 
 
 
-boolean EventDispatcher::enableEventListener(int ev_code, EventListener f, boolean enable) {
+bool EventDispatcher::enableEventListener(int ev_code, EventListener f, bool enable) {
 
    int k;
 
@@ -201,7 +201,7 @@ boolean EventDispatcher::enableEventListener(int ev_code, EventListener f, boole
 
 
 
-boolean EventDispatcher::isEventListenerEnabled(int ev_code, EventListener f) {
+bool EventDispatcher::isEventListenerEnabled(int ev_code, EventListener f) {
 
    int k;
 
@@ -243,7 +243,7 @@ void EventDispatcher::run() {
 
    int i;
 
-   boolean handlerFound;
+   bool handlerFound;
 
    
 
@@ -285,7 +285,7 @@ void EventDispatcher::run() {
 
 
 
-boolean EventDispatcher::setDefaultListener(EventListener f) {
+bool EventDispatcher::setDefaultListener(EventListener f) {
 
    if (f == 0) {
 
@@ -319,7 +319,7 @@ void EventDispatcher::removeDefaultListener() {
 
 
 
-void EventDispatcher::enableDefaultListener(boolean enable) {
+void EventDispatcher::enableDefaultListener(bool enable) {
 
    defaultCallbackEnabled = enable;
 
