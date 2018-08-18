@@ -30,6 +30,9 @@
 
 #include <Events.h>
 
+// this allows using instance.member_function as an event callback
+#define MEMBER_CALLBACK(instance, member_function) [&instance](int event, int param){instance.onEvent(event,param);}
+
 class EventQueue {
 
 public:
