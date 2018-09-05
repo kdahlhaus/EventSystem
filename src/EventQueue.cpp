@@ -62,7 +62,7 @@ int EventQueue::getNumEvents() {
 }
 
 
-bool EventQueue::enqueueEvent(int ev_code, int ev_param) {
+bool EventQueue::enqueueEvent(int ev_code, void *ev_param) {
 
  if (isFull()) {
    return false;
@@ -82,7 +82,7 @@ bool EventQueue::enqueueEvent(int ev_code, int ev_param) {
 }
 
 
-bool EventQueue::dequeueEvent(int* ev_code, int* ev_param) {
+bool EventQueue::dequeueEvent(int* ev_code, void **ev_param) {
  int temp;
  bool isEmpty;
  

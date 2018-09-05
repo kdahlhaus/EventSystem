@@ -58,21 +58,21 @@ public:
    // tries to insert an event into the queue;
    // returns true if successful, false if the
    // queue if full and the event cannot be inserted
-   bool enqueueEvent(int ev_code) { this->enqueueEvent(ev_code, -1);};
-   bool enqueueEvent(int ev_code, int ev_param);
+   bool enqueueEvent(int ev_code) { this->enqueueEvent(ev_code, 0);};
+   bool enqueueEvent(int ev_code, void *ev_param);
 
    // tries to extract an event from the queue;
    // returns true if successful, false if the
    // queue is empty (the parameteres are not touched
    // in this case)
-   bool dequeueEvent(int* ev_code, int* ev_param);
+   bool dequeueEvent(int* ev_code, void **ev_param);
 
 private:
    // each event is represented by an integer code
    int eventQueue[EVQUEUE_SIZE];
 
    // each event has a single integer parameter
-   int eventParam[EVQUEUE_SIZE];
+   void *eventParam[EVQUEUE_SIZE];
 
    // index of event queue head
    int eventQueueHead;

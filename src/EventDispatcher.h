@@ -38,18 +38,10 @@
 
 
 #include <Events.h>
-
 #include <EventQueue.h>
+#include <Functor.h>
 
-
-
-
-
-typedef void (*EventListener)(int ev_code, int ev_param);
-
-
-
-
+typedef Functor2<int, void *> EventListener;
 
 class EventDispatcher {
 
