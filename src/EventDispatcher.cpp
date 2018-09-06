@@ -30,6 +30,7 @@
 
 
 #include "EventDispatcher.h"
+#include <ArduinoLog.h>
 
 
 
@@ -239,7 +240,7 @@ void EventDispatcher::run() {
 
    int event;
 
-   int param;
+   void *param;
 
    int i;
 
@@ -250,28 +251,29 @@ void EventDispatcher::run() {
    handlerFound = false;
 
 
-
    if (q->dequeueEvent(&event, &param)) {
+
+       Log.trace("found event %d in q\n", event);
 
        for (i = 0; i < numListeners; i++) {
 
            if ((callback[i] != 0) && (eventCode[i] == event) && enabled[i]) {
 
                handlerFound = true;
-
-               (*callback[i])(event, param);
+               Log.trace("callback for %d\n", event);
+               (callback[i])(event, param);
 
            }
 
        }
-
+       Log.trace("done going through listeners # listenrs:%d\n", numListeners);
        
 
        if (!handlerFound) {
 
            if ((defaultCallback != 0) && (defaultCallbackEnabled)) {
 
-               (*defaultCallback)(event, param);
+               (defaultCallback)(event, param);
 
            }
 

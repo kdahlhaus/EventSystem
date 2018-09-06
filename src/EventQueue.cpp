@@ -26,6 +26,7 @@
 */
 
 #include "EventQueue.h"
+#include <ArduinoLog.h>
 
 
 EventQueue::EventQueue() {
@@ -65,6 +66,7 @@ int EventQueue::getNumEvents() {
 bool EventQueue::enqueueEvent(int ev_code, void *ev_param) {
 
  if (isFull()) {
+     Log.warning("EventQueue full when adding %d\n", ev_code);
    return false;
  }
 
@@ -85,7 +87,7 @@ bool EventQueue::enqueueEvent(int ev_code, void *ev_param) {
 bool EventQueue::dequeueEvent(int* ev_code, void **ev_param) {
  int temp;
  bool isEmpty;
- 
+
  if (numEvents == 0) {
    return false;
  }
