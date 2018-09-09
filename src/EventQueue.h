@@ -58,7 +58,7 @@ public:
    // tries to insert an event into the queue;
    // returns true if successful, false if the
    // queue if full and the event cannot be inserted
-   bool enqueueEvent(int ev_code) { this->enqueueEvent(ev_code, 0);};
+   bool enqueueEvent(int ev_code) { return this->enqueueEvent(ev_code, 0);};
    bool enqueueEvent(int ev_code, void *ev_param);
 
    // tries to extract an event from the queue;
